@@ -1,0 +1,29 @@
+- hosts: vmhost
+  tasks:
+    - name: Install packages
+      become: yes
+      package:
+        name: "{{ packages | default([]) }}"
+        state: present
+
+    - name: Start & enable libvirtd
+      become: yes
+      service:
+        name: libvirtd
+        enabled: yes
+        state: started
+
+    - name: Make sure user in libvirt group
+      become: yes
+      user:
+        name: "{{ ansible_user_id }}"
+        groups: libvirt
+        append: yes
+
+    - name: Install terraform
+      include_role:
+        role: andrewrothstein.terraform
+
+    - name: Install terraform libvirt plugin
+      include_role:
+        name: stocky37.terraform-libvirt
