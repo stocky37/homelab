@@ -1,5 +1,9 @@
 - hosts: vmhost
+  gather_facts: no
   tasks:
+    - include_role:
+        name: stocky37.wol
+
     - name: Install packages
       become: yes
       package:
@@ -17,8 +21,11 @@
       become: yes
       user:
         name: "{{ ansible_user_id }}"
-        groups: libvirt
+        groups: "{{ item }}"
         append: yes
+      loop:
+        - libvirt
+        - kvm
 
     - name: Install terraform
       include_role:
@@ -27,3 +34,13 @@
     - name: Install terraform libvirt plugin
       include_role:
         name: stocky37.terraform-libvirt
+
+    - name: Install ZFS on Linux
+      include_role:
+        name: stocky37.zfs
+
+    - name: Setup libvirt storage pools
+      include_role:
+        name: stackhpc.libvirt-host
+        tasks_from: pools.yml
+
