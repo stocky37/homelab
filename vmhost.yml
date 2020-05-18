@@ -1,32 +1,8 @@
 - hosts: vmhost
   gather_facts: no
+  roles:
+  - stocky37.kvmhost
   tasks:
-    - include_role:
-        name: stocky37.wol
-
-    - name: Install packages
-      become: yes
-      package:
-        name: "{{ packages | default([]) }}"
-        state: present
-
-    - name: Start & enable libvirtd
-      become: yes
-      service:
-        name: libvirtd
-        enabled: yes
-        state: started
-
-    - name: Make sure user in libvirt group
-      become: yes
-      user:
-        name: "{{ ansible_user_id }}"
-        groups: "{{ item }}"
-        append: yes
-      loop:
-        - libvirt
-        - kvm
-
     - name: Install terraform
       include_role:
         role: andrewrothstein.terraform
@@ -34,10 +10,6 @@
     - name: Install terraform libvirt plugin
       include_role:
         name: stocky37.terraform-libvirt
-
-    - name: Install ZFS on Linux
-      include_role:
-        name: stocky37.zfs
 
     - name: Setup libvirt storage pools
       include_role:

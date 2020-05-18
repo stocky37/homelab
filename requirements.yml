@@ -1,0 +1,5 @@
+- src: andrewrothstein.terraform
+- src: stackhpc.libvirt-host
+- name: stocky37.kvmhost
+  src: https://github.com/stocky37/ansible-role-kvmhost.git
+  version: master

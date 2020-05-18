@@ -1,6 +1,5 @@
 inventory/
-roles/*
-!roles/requirements.yml
+roles/
 .vault-pass
 
 # Created by https://www.gitignore.io/api/ansible
