@@ -1,0 +1,1 @@
+python3-netaddr # required by stocky37.openshift-upi-libvirt

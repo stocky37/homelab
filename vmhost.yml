@@ -1,18 +1,5 @@
 - hosts: vmhost
   gather_facts: no
   roles:
-  - stocky37.kvmhost
-  tasks:
-    - name: Install terraform
-      include_role:
-        role: andrewrothstein.terraform
-
-    - name: Install terraform libvirt plugin
-      include_role:
-        name: stocky37.terraform-libvirt
-
-    - name: Setup libvirt storage pools
-      include_role:
-        name: stackhpc.libvirt-host
-        tasks_from: pools.yml
-
+    - stocky37.kvmhost
+    - stocky37.openshift-upi-libvirt
