@@ -1,0 +1,9 @@
+[submodule "collections/ansible_collections/stocky37/core"]
+	path = collections/ansible_collections/stocky37/core
+	url = https://github.com/stocky37/stocky37.core.git
+[submodule "collections/ansible_collections/stocky37/machines"]
+	path = collections/ansible_collections/stocky37/machines
+	url = https://github.com/stocky37/stocky37.machines.git
+[submodule "collections/ansible_collections/stocky37/openshift"]
+	path = collections/ansible_collections/stocky37/openshift
+	url = https://github.com/stocky37/stocky37.openshift.git

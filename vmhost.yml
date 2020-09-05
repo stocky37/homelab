@@ -1,5 +1,0 @@
-- hosts: vmhost
-  gather_facts: no
-  roles:
-    - stocky37.kvmhost
-    - stocky37.openshift-upi-libvirt

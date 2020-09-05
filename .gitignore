@@ -1,6 +1,8 @@
-inventory/
-roles/
 .vault-pass
+inventory/
+roles/*
+collections/*
+!collections/ansible_collections/stocky37/*
 
 # Created by https://www.gitignore.io/api/ansible
 # Edit at https://www.gitignore.io/?templates=ansible

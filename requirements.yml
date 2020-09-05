@@ -1,8 +1,4 @@
-- src: andrewrothstein.terraform
-#- src: stackhpc.libvirt-host
-- name: stocky37.kvmhost
-  src: https://github.com/stocky37/ansible-role-kvmhost.git
-  version: master
-- name: stocky37.openshift-upi-libvirt
-  src: https://github.com/stocky37/ansible-role-openshift-upi-libvirt.git
-  version: master
+---
+roles:
+  - giovtorres.tuned
+  - stackhpc.libvirt-host

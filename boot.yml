@@ -1,6 +1,13 @@
 - hosts: "{{ hosts | default('vmhost') }}"
   gather_facts: no
+  collections:
+    - ansible.builtin
+    - stocky37.core
   tasks:
+    - name: gather facts for localhost
+      delegate_to: localhost
+      setup:
+
     - include_role:
-        name: stocky37.wol
+        name: wol
         tasks_from: wake.yml
