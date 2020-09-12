@@ -11,3 +11,6 @@
     - include_role:
         name: wol
         tasks_from: wake.yml
+
+    - shell: "virsh list --name --state-shutoff | grep '{{ openshift_cluster_name }}.{{ openshift_base_domain }}' | xargs -I {} virsh start {}"
+      become: yes
