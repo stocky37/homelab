@@ -1,7 +1,6 @@
+- import_playbook: boot.yml
+
 - hosts: vmhost
-  gather_facts: no
   roles:
     - stocky37.machines.core
     - stocky37.machines.hypervisor
-    - stocky37.openshift.install_libvirt
-

@@ -1,0 +1,5 @@
+- import_playbook: hypervisor.yml
+
+- hosts: vmhost
+  roles:
+    - stocky37.openshift.libvirt
